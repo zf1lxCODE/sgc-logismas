@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.LoginController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="-1.0" prefHeight="468.0" prefWidth="500.0" styleClass="fondos" stylesheets="@styles/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="300.0" text="Iniciar Sesión" textAlignment="CENTER" textFill="#0b5394">
+               <font>
+                  <Font name="Tahoma Bold" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="25.0" top="25.0" />
+               </VBox.margin>
+            </Label>
+            <ImageView fitHeight="127.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/acceso.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+               <effect>
+                  <ColorAdjust brightness="1.0" contrast="-1.0" />
+               </effect>
+            </ImageView>
+            <AnchorPane prefHeight="249.0" prefWidth="500.0">
+               <children>
+                  <TextField fx:id="textoUsuario" layoutX="100.0" layoutY="14.0" prefHeight="30.0" prefWidth="300.0" promptText="Usuario" styleClass="textfield-2" stylesheets="@styles/login.css">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
+                  <PasswordField fx:id="textoPass" layoutX="100.0" layoutY="62.0" prefHeight="30.0" prefWidth="300.0" promptText="Contraseña" styleClass="textfield-2">
+                     <font>
+                        <Font size="14.0" />
+                     </font></PasswordField>
+                  <CheckBox fx:id="login_checkbox" layoutX="100.0" layoutY="101.0" mnemonicParsing="false" onAction="#loginShowPassword" text="Mostrar contraseña">
+                     <font>
+                        <Font name="Tahoma" size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <Button fx:id="loginBtn" alignment="CENTER" layoutX="175.0" layoutY="134.0" mnemonicParsing="false" onAction="#Entrar" prefHeight="26.0" prefWidth="149.0" styleClass="btn-1" stylesheets="@styles/login.css" text="Entrar" textAlignment="CENTER" />
+                  <TextField fx:id="textoPassVis" layoutX="100.0" layoutY="62.0" prefHeight="30.0" prefWidth="300.0" promptText="Contraseña" styleClass="textfield-2" stylesheets="@styles/login.css" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="btnLoginvitado" alignment="CENTER" layoutX="139.0" layoutY="180.0" mnemonicParsing="false" onAction="#EntrarInvitado" prefHeight="35.0" prefWidth="221.0" styleClass="btn-1" stylesheets="@styles/login.css" text="Entrar como invitado" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

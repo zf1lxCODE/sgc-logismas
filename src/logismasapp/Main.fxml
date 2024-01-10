@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1037.0" style="-fx-background-color: #bbdefb;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.MainController">
+   <children>
+      <VBox alignment="CENTER" layoutX="32.0" layoutY="44.0" prefHeight="319.0" prefWidth="408.0" spacing="15.0">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Label text="ID">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tfID" prefHeight="25.0" prefWidth="300.0">
+                     <HBox.margin>
+                        <Insets right="25.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Label text="Título">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tfTitle" prefHeight="25.0" prefWidth="300.0">
+                     <HBox.margin>
+                        <Insets right="25.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Label text="Año">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tfYear" prefWidth="300.0">
+                     <HBox.margin>
+                        <Insets right="25.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Label text="Autor">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tfAuthor" prefWidth="300.0">
+                     <HBox.margin>
+                        <Insets right="25.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Label text="Páginas">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tfPages" prefWidth="300.0">
+                     <HBox.margin>
+                        <Insets right="25.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <TableView fx:id="tvBooks" layoutX="463.0" layoutY="44.0" onMouseClicked="#handleMouseAction" prefHeight="519.0" prefWidth="537.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="100.0" text="ID" />
+          <TableColumn fx:id="colTitle" prefWidth="100.0" text="Título" />
+            <TableColumn fx:id="colYear" prefWidth="100.0" text="Año" />
+            <TableColumn fx:id="colAuthor" prefWidth="100.0" text="Autor" />
+            <TableColumn fx:id="colPages" prefWidth="136.0" text="Páginas" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnInsert" layoutX="62.0" layoutY="381.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="92.0" text="Agregar">
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Iconos/boton-agregar.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnUpdate" layoutX="190.0" layoutY="381.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="92.0" text="Editar">
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Iconos/editar.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnDelete" layoutX="317.0" layoutY="381.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="92.0" text="Eliminar">
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Iconos/borrar.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>

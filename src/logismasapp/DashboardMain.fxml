@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1282.0" style="-fx-background-color: #9fdfe8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.DashboardMainController">
+   <children>
+      <VBox alignment="TOP_CENTER" maxHeight="800.0" minHeight="791.0" prefHeight="800.0" prefWidth="267.0" styleClass="fondos" stylesheets="@styles/dash.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1015.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="imgUser" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/usuario-de-perfil%20(2).png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="15.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label text="Bienvenido,">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUser" text="user" wrapText="true">
+               <font>
+                  <Font name="Tahoma" size="28.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Line>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#inicioAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Inicio" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <VBox.margin>
+                  <Insets top="7.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#respgerAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Responsabilidad Gerencial" textFill="WHITE" wrapText="true">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/calidad.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#sgcAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Sistema de Gestión de Calidad" textFill="WHITE" wrapText="true">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/rh.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#servicioAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Servicio al cliente" textFill="WHITE" wrapText="true">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/mantenimiento.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#infodocAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Información documentada" textFill="WHITE" wrapText="true">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/gerente.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#adquiAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Adquisición de materiales" textFill="WHITE" wrapText="true">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#prodAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Producción" textFill="WHITE" wrapText="true">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/compras.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#importAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Import/Export" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#inspecAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Inspección (Monitoreo)" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#caliAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Calibración" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#manteAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Mantenimiento" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#almacenAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Almacén" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#producnoconAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Producto no conforme" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#entrenaAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Entrenamiento (Capacitación)" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#accionescoAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Acciones correctivas" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#mejoracontiAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Mejora contínua" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#auditoriasAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Auditorías" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#ingAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Ingeniería" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="showPane" layoutX="267.0" prefHeight="800.0" prefWidth="1017.0" styleClass="menu" stylesheets="@styles/dash.css" />
+   </children>
+</AnchorPane>

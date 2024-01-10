@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="showPane" prefHeight="890.0" prefWidth="1017.0" style="-fx-background-color: #9fdfe8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.InicioController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="151.0" prefWidth="976.0">
+         <children>
+            <AnchorPane layoutX="11.0" prefHeight="155.0" prefWidth="300.0" style="-fx-background-color: #0b5394; -fx-border-color: white; -fx-border-width: 5; -fx-background-radius: 30px; -fx-border-radius: 25px;">
+               <children>
+                  <Label layoutX="109.0" layoutY="110.0" text="Hallazgos pendientes" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="258.0" layoutY="14.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="665.0" prefHeight="155.0" prefWidth="300.0" style="-fx-background-color: #0b5394; -fx-border-color: white; -fx-border-width: 5; -fx-background-radius: 30px; -fx-border-radius: 25px;">
+               <children>
+                  <Label layoutX="109.0" layoutY="110.0" text="Mensajes sin leer" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="258.0" layoutY="14.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="339.0" prefHeight="155.0" prefWidth="300.0" style="-fx-background-color: #0b5394; -fx-border-color: white; -fx-border-width: 5; -fx-background-radius: 30px; -fx-border-radius: 25px;">
+               <children>
+                  <Label layoutX="122.0" layoutY="113.0" text="Tareas pendientes" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="258.0" layoutY="14.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Line endX="489.0" layoutX="513.0" layoutY="184.0" startX="-497.0" stroke="WHITE" strokeWidth="2.0" />
+      <AnchorPane layoutX="7.0" layoutY="193.0" prefHeight="685.0" prefWidth="1002.0">
+         <children>
+            <VBox alignment="TOP_CENTER" layoutX="77.0" layoutY="12.0" prefHeight="675.0" prefWidth="976.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="12.0">
+               <children>
+                  <HBox alignment="TOP_CENTER" prefHeight="254.0" prefWidth="1005.0" spacing="5.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="290.0" prefWidth="325.0">
+                           <children>
+                              <Label text="Tasa de satisfacción de clientes (%)" textAlignment="CENTER" textFill="NAVY">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <BarChart prefHeight="270.0" prefWidth="325.0">
+                                 <xAxis>
+                                    <CategoryAxis prefWidth="294.0" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="290.0" prefWidth="325.0">
+                           <children>
+                              <Label text="Envíos a tiempo (%)" textAlignment="CENTER" textFill="NAVY">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <BarChart prefHeight="270.0" prefWidth="325.0">
+                                 <xAxis>
+                                    <CategoryAxis prefWidth="294.0" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="290.0" prefWidth="325.0">
+                           <children>
+                              <Label text="Mantenimientos realizados a tiempo (%)" textAlignment="CENTER" textFill="NAVY">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <BarChart prefHeight="270.0" prefWidth="325.0">
+                                 <xAxis>
+                                    <CategoryAxis prefWidth="294.0" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" prefHeight="254.0" prefWidth="1005.0" spacing="5.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="290.0" prefWidth="325.0">
+                           <children>
+                              <Label text="Tasa de satisfacción del clima laboral (%)" textAlignment="CENTER" textFill="NAVY">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <BarChart prefHeight="270.0" prefWidth="325.0">
+                                 <xAxis>
+                                    <CategoryAxis prefWidth="294.0" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="290.0" prefWidth="325.0">
+                           <children>
+                              <Label text="Cantidad de NC de clientes" textAlignment="CENTER" textFill="NAVY">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <BarChart prefHeight="270.0" prefWidth="325.0">
+                                 <xAxis>
+                                    <CategoryAxis prefWidth="294.0" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="290.0" prefWidth="325.0">
+                           <children>
+                              <Label text="Tasa de satisfacción al proveedor (%)" textAlignment="CENTER" textFill="NAVY">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <BarChart prefHeight="270.0" prefWidth="325.0">
+                                 <xAxis>
+                                    <CategoryAxis prefWidth="294.0" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
