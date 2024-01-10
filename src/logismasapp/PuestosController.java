@@ -45,9 +45,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import jdk.jfr.internal.tool.Main;
 
@@ -88,6 +90,8 @@ public class PuestosController implements Initializable {
     private TableColumn<Puesto, String> lastupdateCol;
     @FXML
     private TextField revTF;
+    @FXML
+    private AnchorPane puestosPane;
 
     public Connection getConnection() {
         Connection conn;
@@ -356,8 +360,9 @@ public class PuestosController implements Initializable {
     }
 
     @FXML
-    private void mostrarEmpleados(ActionEvent event) {
-        
+    private void mostrarEmpleados(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Empleados.fxml"));
+        puestosPane.getChildren().setAll(pane);
     }
 
 }

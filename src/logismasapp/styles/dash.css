@@ -1,0 +1,43 @@
+.btn-1{
+    -fx-text-fill: #fff;
+    -fx-font: 12px "Tahoma";
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-border-color:  #fff;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 10px;
+    -fx-border-width: 2px;
+    -fx-background-color:  #0b5394;
+}
+
+.btn-1:hover{
+    -fx-background-color: linear-gradient(to bottom right, #8bb5cf, #0b5394);
+}
+
+
+.btn-2{
+    -fx-text-fill: #fff;
+    -fx-font: 22px "Tahoma";
+    -fx-cursor: hand;
+    -fx-background-color:  #0b5394;
+}
+
+.btn-2:hover{
+    -fx-background-color: linear-gradient(to bottom right, #8bb5cf, #0b5394);
+}
+
+.textfield-2{
+    -fx-border-color: #000;
+    -fx-border-width: .3px;
+    -fx-font-family: Tahoma;
+}
+.textfield-2:focused{
+    -fx-border-color: linear-gradient(to bottom right, #8bb5cf, #0b5394);
+    -fx-border-width: 1px;
+}
+
+
+
+.bg-1{
+    -fx-background-color: linear-gradient(#8bb5cf,#9fdfe8)
+}

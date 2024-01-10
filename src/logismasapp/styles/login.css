@@ -1,0 +1,32 @@
+.btn-1{
+    -fx-text-fill: #fff;
+    -fx-background-color: #0b5394;
+    -fx-font: 16px "Tahoma";
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-border-color: #fff;
+    -fx-border-width: 2px;
+}
+
+.btn-1:hover{
+    -fx-background-color: linear-gradient(to bottom right, #8bb5cf, #0b5394);
+}
+
+.textfield-2{
+    -fx-border-color: #000;
+    -fx-border-width: .3px;
+    -fx-font-family: Tahoma;
+}
+.textfield-2:focused{
+    -fx-border-color: linear-gradient(to bottom right, #8bb5cf, #0b5394);
+    -fx-border-width: 1px;
+}
+
+.fondos{
+    -fx-background-color: linear-gradient(to left,#9fdfe8,#8bb5cf);
+}
+
+
+.menu{
+    -fx-background-color: #8bb5cf;
+}
