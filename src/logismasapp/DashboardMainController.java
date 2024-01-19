@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -38,13 +39,48 @@ public class DashboardMainController implements Initializable {
     private Label lblUser;
 
     String username;
+    private Label lblURLDB;
+    private Label lblUserDB;
+    private Label lblPassDB;
+    @FXML
+    private Button respgerLabel;
+    @FXML
+    private Button sgcLabel;
+    @FXML
+    private Button servLabel;
+    @FXML
+    private Button infodocLabel;
+    @FXML
+    private Button adquiLabel;
+    @FXML
+    private Button prodLabel;
+    @FXML
+    private Button impoLabel;
+    @FXML
+    private Button inspecLabel;
+    @FXML
+    private Button caliLabel;
+    @FXML
+    private Button manteLabel;
+    @FXML
+    private Button almaLabel;
+    @FXML
+    private Button prodnocLabel;
+    @FXML
+    private Button entreLabel;
+    @FXML
+    private Button accionesLabel;
+    @FXML
+    private Button mejoraLabel;
+    @FXML
+    private Button auditintLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         displayUsername();
         AnchorPane pane = null;
         try {
-            pane = FXMLLoader.load(getClass().getResource("Inicio.fxml"));
+            pane = FXMLLoader.load(getClass().getResource("gerDash.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(DashboardMainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -73,7 +109,6 @@ public class DashboardMainController implements Initializable {
         showPane.getChildren().setAll(pane);
     }
 
-    @FXML
     private void inicioAction(ActionEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Inicio.fxml"));
         showPane.getChildren().setAll(pane);
@@ -90,7 +125,6 @@ public class DashboardMainController implements Initializable {
         showPane.getChildren().setAll(pane);
     }
 
-    @FXML
     private void ingAction(ActionEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("ingDash.fxml"));
         showPane.getChildren().setAll(pane);
@@ -103,7 +137,9 @@ public class DashboardMainController implements Initializable {
     }
 
     @FXML
-    private void servicioAction(ActionEvent event) {
+    private void servicioAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("servDash.fxml"));
+        showPane.getChildren().setAll(pane);
     }
 
     @FXML
@@ -119,31 +155,45 @@ public class DashboardMainController implements Initializable {
     }
 
     @FXML
-    private void importAction(ActionEvent event) {
+    private void importAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("importDash.fxml"));
+        showPane.getChildren().setAll(pane);
     }
 
     @FXML
-    private void inspecAction(ActionEvent event) {
+    private void inspecAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("inspecDash.fxml"));
+        showPane.getChildren().setAll(pane);
     }
 
     @FXML
-    private void caliAction(ActionEvent event) {
+    private void caliAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("caliDash.fxml"));
+        showPane.getChildren().setAll(pane);
     }
 
     @FXML
-    private void manteAction(ActionEvent event) {
+    private void manteAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("manteDash.fxml"));
+        showPane.getChildren().setAll(pane);
     }
 
     @FXML
-    private void almacenAction(ActionEvent event) {
+    private void almacenAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("almaDash.fxml"));
+        showPane.getChildren().setAll(pane);
     }
 
     @FXML
-    private void producnoconAction(ActionEvent event) {
+    private void producnoconAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("prodnoDash.fxml"));
+        showPane.getChildren().setAll(pane);
     }
 
     @FXML
-    private void entrenaAction(ActionEvent event) {
+    private void entrenaAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("entreDash.fxml"));
+        showPane.getChildren().setAll(pane);
     }
 
     @FXML
@@ -151,13 +201,17 @@ public class DashboardMainController implements Initializable {
     }
 
     @FXML
-    private void mejoracontiAction(ActionEvent event) {
+    private void mejoracontiAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("mejoraDash.fxml"));
+        showPane.getChildren().setAll(pane);
     }
 
     @FXML
-    private void auditoriasAction(ActionEvent event) {
+    private void auditoriasintAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("auditintDash.fxml"));
+        showPane.getChildren().setAll(pane);
     }
-
+    
     public void displayUsername() {
         String user = data.username;
         lblUser.setText(user);
@@ -165,5 +219,6 @@ public class DashboardMainController implements Initializable {
         System.out.println(lblUser.getText());
         System.out.println(lblUser.getText());
     }
+
 
 }

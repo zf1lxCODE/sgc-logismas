@@ -11,54 +11,36 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1282.0" style="-fx-background-color: #9fdfe8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.DashboardMainController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="816.0" prefWidth="1392.0" styleClass="nav-form" stylesheets="@styles/dash.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.DashboardMainController">
    <children>
-      <VBox alignment="TOP_CENTER" maxHeight="800.0" minHeight="791.0" prefHeight="800.0" prefWidth="267.0" styleClass="fondos" stylesheets="@styles/dash.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1015.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" maxHeight="892.0" minHeight="791.0" prefHeight="892.0" prefWidth="341.0" stylesheets="@styles/dash.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1081.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="imgUser" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgUser" fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/usuario-de-perfil%20(2).png" />
+                  <Image url="@images/user2.png" />
                </image>
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="15.0" />
                </VBox.margin>
             </ImageView>
-            <Label text="Bienvenido,">
+            <Label text="Bienvenido," textFill="WHITE">
                <font>
                   <Font name="System Italic" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblUser" text="user" wrapText="true">
+            <Label fx:id="lblUser" text="user" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma" size="28.0" />
                </font>
             </Label>
-            <Line endX="100.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0">
+            <Line endX="187.91909790039062" startX="-100.0" stroke="WHITE" strokeWidth="2.0">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets bottom="20.0" top="5.0" />
                </VBox.margin>
             </Line>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#inicioAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Inicio" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Button fx:id="respgerLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#respgerAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Responsabilidad Gerencial" textFill="WHITE" wrapText="true">
                <VBox.margin>
-                  <Insets top="7.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Tahoma Bold" size="16.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/home.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#respgerAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Responsabilidad Gerencial" textFill="WHITE" wrapText="true">
-               <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets />
                </VBox.margin>
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
@@ -74,9 +56,9 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#sgcAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Sistema de Gestión de Calidad" textFill="WHITE" wrapText="true">
+            <Button fx:id="sgcLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#sgcAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Sistema de Gestión de Calidad" textFill="WHITE" wrapText="true">
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
@@ -92,9 +74,9 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#servicioAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Servicio al cliente" textFill="WHITE" wrapText="true">
+            <Button fx:id="servLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#servicioAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Servicio al cliente" textFill="WHITE" wrapText="true">
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
@@ -110,9 +92,9 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#infodocAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Información documentada" textFill="WHITE" wrapText="true">
+            <Button fx:id="infodocLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#infodocAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Información documentada" textFill="WHITE" wrapText="true">
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
@@ -128,9 +110,9 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#adquiAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Adquisición de materiales" textFill="WHITE" wrapText="true">
+            <Button fx:id="adquiLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#adquiAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Adquisición de materiales" textFill="WHITE" wrapText="true">
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
@@ -146,9 +128,9 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#prodAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Producción" textFill="WHITE" wrapText="true">
+            <Button fx:id="prodLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#prodAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Producción" textFill="WHITE" wrapText="true">
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
@@ -164,7 +146,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#importAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Import/Export" textFill="WHITE" wrapText="true">
+            <Button fx:id="impoLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#importAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Import/Export" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
                </font>
@@ -179,10 +161,10 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#inspecAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Inspección (Monitoreo)" textFill="WHITE" wrapText="true">
+            <Button fx:id="inspecLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#inspecAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Inspección (Monitoreo)" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
                </font>
@@ -197,10 +179,10 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#caliAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Calibración" textFill="WHITE" wrapText="true">
+            <Button fx:id="caliLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#caliAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Calibración" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
                </font>
@@ -215,10 +197,10 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#manteAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Mantenimiento" textFill="WHITE" wrapText="true">
+            <Button fx:id="manteLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#manteAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Mantenimiento" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
                </font>
@@ -233,10 +215,10 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#almacenAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Almacén" textFill="WHITE" wrapText="true">
+            <Button fx:id="almaLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#almacenAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Almacén" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
                </font>
@@ -251,10 +233,10 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#producnoconAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Producto no conforme" textFill="WHITE" wrapText="true">
+            <Button fx:id="prodnocLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#producnoconAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Producto no conforme" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
                </font>
@@ -269,10 +251,10 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#entrenaAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Entrenamiento (Capacitación)" textFill="WHITE" wrapText="true">
+            <Button fx:id="auditintLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#auditoriasintAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Auditorías internas" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
                </font>
@@ -287,10 +269,10 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#accionescoAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Acciones correctivas" textFill="WHITE" wrapText="true">
+            <Button fx:id="entreLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#entrenaAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Entrenamiento (Capacitación)" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
                </font>
@@ -305,10 +287,10 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#mejoracontiAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Mejora contínua" textFill="WHITE" wrapText="true">
+            <Button fx:id="accionesLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#accionescoAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Acciones correctivas" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
                </font>
@@ -323,10 +305,10 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#auditoriasAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Auditorías" textFill="WHITE" wrapText="true">
+            <Button fx:id="mejoraLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#mejoracontiAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Mejora contínua" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
                </font>
@@ -341,29 +323,11 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <VBox.margin>
-                  <Insets top="5.0" />
-               </VBox.margin>
-            </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#ingAction" prefHeight="25.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Ingeniería" textFill="WHITE" wrapText="true">
-               <font>
-                  <Font name="Tahoma Bold" size="16.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/produccion.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
+                  <Insets top="4.0" />
                </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="showPane" layoutX="267.0" prefHeight="800.0" prefWidth="1017.0" styleClass="menu" stylesheets="@styles/dash.css" />
+      <AnchorPane fx:id="showPane" layoutX="356.0" layoutY="15.0" prefHeight="771.0" prefWidth="1026.0" styleClass="menu" stylesheets="@styles/dash.css" />
    </children>
 </AnchorPane>

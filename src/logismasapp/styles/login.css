@@ -1,32 +1,87 @@
 .btn-1{
-    -fx-text-fill: #fff;
-    -fx-background-color: #0b5394;
-    -fx-font: 16px "Tahoma";
-    -fx-font-weight: bold;
-    -fx-cursor: hand;
+    -fx-background-color: transparent;
     -fx-border-color: #fff;
-    -fx-border-width: 2px;
+    -fx-border-width: .4px;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
 }
 
 .btn-1:hover{
-    -fx-background-color: linear-gradient(to bottom right, #8bb5cf, #0b5394);
+    -fx-background-color: #fff;
+    -fx-text-fill: #000;
 }
 
 .textfield-2{
-    -fx-border-color: #000;
-    -fx-border-width: .3px;
-    -fx-font-family: Tahoma;
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: .5px;
+    -fx-text-fill: #fff;
 }
 .textfield-2:focused{
-    -fx-border-color: linear-gradient(to bottom right, #8bb5cf, #0b5394);
     -fx-border-width: 1px;
 }
 
 .fondos{
-    -fx-background-color: linear-gradient(to left,#9fdfe8,#8bb5cf);
+    -fx-background-color: linear-gradient(to bottom right, #0f6789, #286155);
 }
 
 
 .menu{
     -fx-background-color: #8bb5cf;
+}
+
+.gradient{
+    -fx-background-color: linear-gradient(to bottom right, #0f6789, #286155);
+}
+
+.white-form{
+    -fx-background-color: #fff;
+}
+
+.head-label{
+    -fx-border-color: #286155;
+    -fx-border-width: 0 0 0 3px;
+    -fx-padding: 0 0 0 5px;
+}
+
+.login-btn{
+    -fx-background-color: linear-gradient(to bottom right, #098c53, #246861); 
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+}
+
+.login-btn:hover{
+    -fx-background-color: linear-gradient(to bottom right, #0fb565, #399a8f); 
+}.textfield{
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to bottom right, #0f6789, #286155);
+    -fx-border-width: .5px;
+}
+.textfield:focused{
+    -fx-border-width: 1px;
+}
+
+.textfield{
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to bottom right, #0f6789, #286155);
+    -fx-border-width: .5px;
+    -fx-text-fill: #fff;
+}
+.textfield:focused{
+    -fx-border-width: 1px;
+}
+
+.create-btn{
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-border-color: #fff;
+    -fx-border-width: 1px;
+}
+.create-btn:hover{
+    -fx-background-color: #fff;
+    -fx-text-fill: #000;
 }

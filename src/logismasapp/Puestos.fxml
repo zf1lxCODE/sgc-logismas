@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -11,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="puestosPane" prefHeight="800.0" prefWidth="1017.0" style="-fx-background-color: #9fdfe8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.PuestosController">
+<AnchorPane fx:id="puestosPane" prefHeight="800.0" prefWidth="1017.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.PuestosController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="21.0" layoutY="-8.0" prefHeight="800.0" prefWidth="1017.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TableView fx:id="tablaPuestos" focusTraversable="false" maxWidth="1532.0" minHeight="405.0" onMouseClicked="#handleMouseAction" prefHeight="551.0" prefWidth="967.0">
+            <TableView fx:id="tablaPuestos" focusTraversable="false" maxWidth="1532.0" minHeight="405.0" onMouseClicked="#handleMouseAction" prefHeight="444.0" prefWidth="967.0" stylesheets="@styles/dash.css">
               <columns>
                 <TableColumn fx:id="idCol" editable="false" prefWidth="53.33334481716156" resizable="false" text="#" />
                   <TableColumn fx:id="codigoCol" editable="false" prefWidth="146.66672134399414" resizable="false" text="Código" />
@@ -31,30 +32,58 @@
             </TableView>
             <AnchorPane prefHeight="298.0" prefWidth="1017.0">
                <children>
-                  <Label layoutX="86.0" layoutY="83.0" text="Nombre" />
-                  <TextField fx:id="nombreTF" layoutX="141.0" layoutY="79.0" prefHeight="25.0" prefWidth="259.0" />
-                  <ComboBox fx:id="departamentoBox" layoutX="141.0" layoutY="122.0" prefHeight="25.0" prefWidth="259.0" />
-                  <Label layoutX="55.0" layoutY="126.0" text="Departamento" />
-                  <Label layoutX="89.0" layoutY="41.0" text="Código" />
-                  <TextField fx:id="codigoTF" layoutX="141.0" layoutY="37.0" prefHeight="25.0" prefWidth="259.0" />
-                  <Label layoutX="108.0" layoutY="160.0" text="Rev." />
-                  <TextField fx:id="revTF" layoutX="141.0" layoutY="156.0" prefHeight="25.0" prefWidth="259.0" />
-                  <Button layoutX="141.0" layoutY="192.0" mnemonicParsing="false" onAction="#seleccionarArchivo" prefHeight="32.0" prefWidth="142.0" stylesheets="@styles/dash.css" text="Seleccionar">
+                  <Label layoutX="86.0" layoutY="83.0" text="Nombre" textFill="WHITE" />
+                  <TextField fx:id="nombreTF" layoutX="141.0" layoutY="79.0" prefHeight="25.0" prefWidth="259.0" styleClass="textfield-2" stylesheets="@styles/login.css" />
+                  <ComboBox fx:id="departamentoBox" layoutX="141.0" layoutY="122.0" prefHeight="25.0" prefWidth="259.0" promptText="Seleccionar" style="-fx-text-fill: #fff;" styleClass="shadow" stylesheets="@styles/dash.css" />
+                  <Label layoutX="55.0" layoutY="126.0" text="Departamento" textFill="WHITE" />
+                  <Label layoutX="89.0" layoutY="41.0" text="Código" textFill="WHITE" />
+                  <TextField fx:id="codigoTF" layoutX="141.0" layoutY="37.0" prefHeight="25.0" prefWidth="259.0" styleClass="textfield-2" stylesheets="@styles/login.css" />
+                  <Label layoutX="108.0" layoutY="160.0" text="Rev." textFill="WHITE" />
+                  <TextField fx:id="revTF" layoutX="141.0" layoutY="156.0" prefHeight="25.0" prefWidth="259.0" styleClass="textfield-2" stylesheets="@styles/login.css" />
+                  <Button layoutX="141.0" layoutY="192.0" mnemonicParsing="false" onAction="#seleccionarArchivo" prefHeight="32.0" prefWidth="142.0" stylesheets="@styles/dash.css" text="Seleccionar" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
-                     </font></Button>
-                  <Button layoutX="419.0" layoutY="28.0" mnemonicParsing="false" onAction="#agregaAction" prefHeight="43.0" prefWidth="142.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Agregar" />
-                  <Button layoutX="419.0" layoutY="194.0" mnemonicParsing="false" onAction="#eliminarAction" prefHeight="43.0" prefWidth="142.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Eliminar" />
-                  <Button layoutX="419.0" layoutY="138.0" mnemonicParsing="false" onAction="#limpiarAction" prefHeight="43.0" prefWidth="142.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Limpiar" />
-                  <Button layoutX="419.0" layoutY="83.0" mnemonicParsing="false" onAction="#actualizarAction" prefHeight="43.0" prefWidth="142.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Actualizar" />
-                  <Label fx:id="lblImg" layoutX="290.0" layoutY="195.0" text="Sin seleccionar">
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass></Button>
+                  <Button layoutX="419.0" layoutY="28.0" mnemonicParsing="false" onAction="#agregaAction" prefHeight="43.0" prefWidth="142.0" stylesheets="@styles/dash.css" text="Agregar">
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass></Button>
+                  <Button layoutX="419.0" layoutY="194.0" mnemonicParsing="false" onAction="#eliminarAction" prefHeight="43.0" prefWidth="142.0" stylesheets="@styles/dash.css" text="Eliminar">
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass></Button>
+                  <Button layoutX="419.0" layoutY="138.0" mnemonicParsing="false" onAction="#limpiarAction" prefHeight="43.0" prefWidth="142.0" stylesheets="@styles/dash.css" text="Limpiar">
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass></Button>
+                  <Button layoutX="419.0" layoutY="83.0" mnemonicParsing="false" onAction="#actualizarAction" prefHeight="43.0" prefWidth="142.0" stylesheets="@styles/dash.css" text="Actualizar">
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass></Button>
+                  <Label fx:id="lblImg" layoutX="290.0" layoutY="195.0" text="Sin seleccionar" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="14.0" layoutY="199.0" text="Descripción de puesto" />
-                  <Button layoutX="571.0" layoutY="108.0" mnemonicParsing="false" onAction="#abrirSeleccionado" prefHeight="43.0" prefWidth="431.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Abrir descripción del puesto seleccionado" />
-                  <Button layoutX="571.0" layoutY="36.0" mnemonicParsing="false" onAction="#mostrarEmpleados" prefHeight="43.0" prefWidth="431.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Mostrar lista de empleados" />
+                  <Label layoutX="14.0" layoutY="199.0" text="Descripción de puesto" textFill="WHITE" />
+                  <Button layoutX="571.0" layoutY="108.0" mnemonicParsing="false" onAction="#abrirSeleccionado" prefHeight="43.0" prefWidth="431.0" stylesheets="@styles/dash.css" text="Abrir descripción del puesto seleccionado">
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass></Button>
+                  <Button layoutX="571.0" layoutY="36.0" mnemonicParsing="false" onAction="#mostrarEmpleados" prefHeight="43.0" prefWidth="431.0" stylesheets="@styles/dash.css" text="Mostrar lista de empleados">
+                     <styleClass>
+                        <String fx:value="btn-1" />
+                        <String fx:value="shadow" />
+                     </styleClass></Button>
                </children>
             </AnchorPane>
          </children>

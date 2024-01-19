@@ -18,9 +18,9 @@ import java.sql.Statement;
  */
 public class JdbcDao {
 
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/logismasdatabase";
-    private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "Fileton2015";
+    public static final String DATABASE_URL = "jdbc:mysql://"+data.hostDB+":"+data.portDB+"/"+data.dbDB+"";
+    public static final String DATABASE_USERNAME = data.userDB;
+    public static final String DATABASE_PASSWORD = data.passDB;
     private static final String SELECT_QUERY = "SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ?";
 
     public boolean validate(String username, String password) {

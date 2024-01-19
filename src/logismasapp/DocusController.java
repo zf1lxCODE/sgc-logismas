@@ -28,11 +28,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -60,8 +64,14 @@ public class DocusController implements Initializable {
 
     Alertas a = new Alertas();
     JdbcDao jdbc = new JdbcDao();
+    @FXML
+    private Label topLabel;
+    @FXML
+    private Button volverBtn;
+    @FXML
+    private AnchorPane docusPane;
 
-    private void showDocus() {
+    void showDocus() {
         ObservableList<Docu> list = a.getDocuList();
         idCol.setCellValueFactory(new PropertyValueFactory<Docu, Integer>("id"));
         codigoCol.setCellValueFactory(new PropertyValueFactory<Docu, String>("codigo"));
@@ -71,19 +81,21 @@ public class DocusController implements Initializable {
         lastupdateCol.setCellValueFactory(new PropertyValueFactory<Docu, String>("last_update"));
         tablaDocus.setItems(list);
     }
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        topLabel.setText(data.headText);
         showDocus();
     }
-
+    
     @FXML
     private void agregaAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("DocuDialog.fxml"));
         Parent root = loader.load();
         a.openWindow(root);
+        showDocus();
     }
-
+    
     @FXML
     private void editarAction(ActionEvent event) throws IOException {
         Docu docu = tablaDocus.getSelectionModel().getSelectedItem();
@@ -92,37 +104,63 @@ public class DocusController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("DocuDialog.fxml"));
             Parent root = loader.load();
             DocuDialogController controlador = loader.getController();
+            DocusController controladork = loader.getController();
             controlador.inicializaDocus(list, docu);
+            controlador.control(controladork);
             a.openWindow(root);
+            showDocus();
+            
+        }else{
+            a.noSelection();
         }
     }
-
+    
     @FXML
     private void actualizarAction(ActionEvent event) {
         showDocus();
     }
-
+    
     @FXML
     private void eliminarAction(ActionEvent event) {
-        Docu docu = tablaDocus.getSelectionModel().getSelectedItem();
-        if (docu != null) {
-            if (a.confirmDelete()) {
-                String query = "DELETE FROM " + data.tbName + " WHERE id = " + docu.getId() + "";
-                jdbc.executeQuery(query);
-                System.out.println(query);
-                showDocus();
+        if (tablaDocus.getSelectionModel().getSelectedItem() != null) {
+                        Docu docu = tablaDocus.getSelectionModel().getSelectedItem();
+            if (docu != null) {
+                if (a.confirmDelete()) {
+                    String query = "DELETE FROM " + data.tbName + " WHERE id = " + docu.getId() + "";
+                    jdbc.executeQuery(query);
+                    System.out.println(query);
+                    showDocus();
+                }
             }
+        } else {
+            a.noSelection();
         }
     }
-
+    
     @FXML
     private void openSelected(ActionEvent event) {
+        if(tablaDocus.getSelectionModel().getSelectedItem()!=null){
         Docu docu = tablaDocus.getSelectionModel().getSelectedItem();
         a.openFile(docu);
+        }else{
+            a.noSelection();
+        }
     }
-
+    
     @FXML
     private void handleMouseAction(MouseEvent event) {
     }
 
+    @FXML
+    private void volverAction(MouseEvent event) throws IOException {
+        AnchorPane panek = FXMLLoader.load(getClass().getResource(data.escenaAnt));
+        docusPane.getChildren().setAll(panek);
+    }
+
+    @FXML
+    private void volverAction(ActionEvent event) throws IOException {
+        AnchorPane panek = FXMLLoader.load(getClass().getResource(data.escenaAnt));
+        docusPane.getChildren().setAll(panek);
+    }
+    
 }

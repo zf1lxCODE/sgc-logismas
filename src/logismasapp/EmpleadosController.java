@@ -50,6 +50,10 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import jdk.jfr.internal.tool.Main;
+import static logismasapp.JdbcDao.DATABASE_PASSWORD;
+import static logismasapp.JdbcDao.DATABASE_URL;
+import static logismasapp.JdbcDao.DATABASE_USERNAME;
+import static logismasapp.JdbcDao.printSQLException;
 
 /**
  * FXML Controller class
@@ -122,14 +126,13 @@ public class EmpleadosController implements Initializable {
     private Label lblImg;
 
     public Connection getConnection() {
-        Connection conn;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/logismasdatabase", "root", "Fileton2015");
-            return conn;
+            Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+            return connection;
         } catch (SQLException ex) {
-            System.out.println("Error: " + ex.getMessage());
-            return null;
+            printSQLException(ex);
         }
+        return null;
     }
 
     private void executeQuery(String query) {
@@ -298,10 +301,6 @@ public class EmpleadosController implements Initializable {
         departamentoForm.setItems(FXCollections.observableArrayList(getDepartamentos()));
         generoForm.setItems(FXCollections.observableArrayList(getGeneros()));
         estadoForm.setItems(FXCollections.observableArrayList(getEstados()));
-        estadoForm.getSelectionModel().select("SELECCIONAR");
-        generoForm.getSelectionModel().select("SELECCIONAR");
-        puestoForm.getSelectionModel().select("SELECCIONAR");
-        departamentoForm.getSelectionModel().select("SELECCIONAR");
 
     }
 

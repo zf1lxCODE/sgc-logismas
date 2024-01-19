@@ -9,21 +9,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="404.0" prefWidth="549.0" styleClass="bg-1" stylesheets="@styles/dash.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.DocuDialogController">
+<AnchorPane prefHeight="404.0" prefWidth="549.0" styleClass="nav-form" stylesheets="@styles/dash.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.DocuDialogController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="16.0" prefHeight="404.0" prefWidth="522.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="labelHeader" alignment="CENTER" prefHeight="72.0" prefWidth="317.0" text="Logismas" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="labelHeader" alignment="CENTER" prefHeight="72.0" prefWidth="317.0" text="Logismas" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Tahoma" size="38.0" />
+                  <Font name="Tahoma" size="36.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="20.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </Label>
-            <VBox alignment="TOP_CENTER" prefHeight="332.0" prefWidth="522.0">
+            <VBox prefHeight="332.0" prefWidth="522.0">
                <children>
-                  <Label alignment="CENTER" text="Codigo" textAlignment="CENTER">
+                  <Label alignment="CENTER" text="Codigo" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -31,12 +31,12 @@
                         <Font name="Tahoma" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="codigoTF">
+                  <TextField fx:id="codigoTF" styleClass="textfield-2" stylesheets="@styles/login.css">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label alignment="CENTER" text="Nombre">
+                  <Label alignment="CENTER" text="Nombre" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -44,23 +44,29 @@
                         <Font name="Tahoma" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nombreTF">
+                  <TextField fx:id="nombreTF" styleClass="textfield-2" stylesheets="@styles/login.css">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label alignment="CENTER" text="Rev." textAlignment="CENTER">
+                  <Label alignment="CENTER" text="Rev." textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="20.0" />
-                     </font></Label>
-                  <TextField fx:id="revTF" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin></Label>
+                  <TextField fx:id="revTF" prefHeight="27.0" prefWidth="503.0" styleClass="textfield-2" stylesheets="@styles/login.css">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </VBox.margin></TextField>
                   <HBox prefHeight="131.0" prefWidth="511.0">
                      <children>
                         <Button fx:id="btnseleccionar" mnemonicParsing="false" onAction="#elegirRuta" styleClass="btn-1" stylesheets="@styles/dash.css" text="Seleccionar...">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin></Button>
-                        <Label fx:id="labelArchivo" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="85.0" prefWidth="399.0" text="Sin seleccionar" wrapText="true">
+                        <Label fx:id="labelArchivo" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="85.0" prefWidth="399.0" text="Sin seleccionar" textFill="WHITE" wrapText="true">
                            <font>
                               <Font name="System Italic" size="12.0" />
                            </font>

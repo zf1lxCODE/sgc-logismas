@@ -41,8 +41,11 @@ public class LoginController implements Initializable {
     private CheckBox login_checkbox;
     @FXML
     private TextField textoPassVis;
-    @FXML
-    private Button btnLoginvitado;
+    private TextField hostTF;
+    private TextField userTF;
+    private TextField passwordTF;
+    private TextField portTF;
+    private TextField dbTF;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,31 +54,34 @@ public class LoginController implements Initializable {
 
     @FXML
     private void Entrar(ActionEvent event) throws IOException {
+        
+        data.userDB="rootdos";
+        data.passDB="root";
+        data.hostDB="ISIDRO-QCPC";
+        data.portDB="3306";
+        data.dbDB="logismasdatabase";
+        
         Window owner = textoUsuario.getScene().getWindow();
-        System.out.println(textoUsuario.getText());
-        System.out.println(textoPass.getText());
+        
         data.username = textoUsuario.getText();
+        
         System.out.println(data.username);
         System.out.println(data.username);
-        if (textoUsuario.getText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "Por favor, ingresa un usuario válido", "Form error!");
-            return;
-        }
-
-        if (textoPass.getText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "Por favor, ingresa un correo válido", "Form error!");
-            return;
+        
+        if (textoUsuario.getText().isEmpty()||textoPass.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "Por favor, llena todos los campos", "Form error!");
         }
 
         String username = textoUsuario.getText();
         String password = textoPass.getText();
 
         JdbcDao jdbcDao = new JdbcDao();
+        
         boolean flag = jdbcDao.validate(username, password);
+        
         if (!flag) {
             infoBox("Favor de ingresar usario y contraseña correctos", null, "failed");
         } else {
-            infoBox("Inicio de sesión exitoso", null, "Éxito");
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DashboardMain.fxml"));
                 Parent root = fxmlLoader.load();
@@ -84,8 +90,8 @@ public class LoginController implements Initializable {
                 stage.setTitle("LOGISMAS | Dashboard");
                 stage.setScene(new Scene(root));
                 stage.show();
+                loginBtn.getScene().getWindow().hide();
             } catch (IOException ex) {
-
             }
         }
     }
@@ -118,19 +124,6 @@ public class LoginController implements Initializable {
             textoPassVis.setVisible(false);
             textoPass.setVisible(true);
         }
-    }
-
-    @FXML
-    private void EntrarInvitado(ActionEvent event) throws IOException {
-        data.username = "Invitado";
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DashboardMain.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setResizable(false);
-        stage.setTitle("LOGISMAS | Dashboard");
-        stage.setScene(new Scene(root));
-        DashboardMainController controller = (DashboardMainController) fxmlLoader.getController();
-        stage.show();
     }
 
 }

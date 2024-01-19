@@ -11,6 +11,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,7 +40,21 @@ public class Alertas {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Cuadro de confirmación");
         alert.setHeaderText("Alerta");
-        alert.setContentText("¿Estás seguro de borrar el elemento seleccionado??");
+        alert.setContentText("¿Estás seguro de borrar el elemento seleccionado?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    
+        public boolean confirmEdit() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Cuadro de confirmación");
+        alert.setHeaderText("Alerta");
+        alert.setContentText("¿Estás seguro de modificar el elemento seleccionado?");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
             return true;
@@ -57,8 +74,32 @@ public class Alertas {
 
     public void infoSuccess() {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setContentText("El archivo se agregó correctamente!!");
+        a.setContentText("El archivo se agregó correctamente!");
         a.setTitle("Enhorabuena!");
+        a.setHeaderText("LOGISMAS");
+        a.showAndWait();
+    }
+    
+        public void infoSuccessEdit() {
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setContentText("El archivo se modificó correctamente!");
+        a.setTitle("Enhorabuena!");
+        a.setHeaderText("LOGISMAS");
+        a.showAndWait();
+    }
+        
+        public void noSelection() {
+        Alert a = new Alert(Alert.AlertType.ERROR);
+        a.setContentText("Por favor, selecciona algún elemento de la tabla");
+        a.setTitle("ERROR");
+        a.setHeaderText("LOGISMAS");
+        a.showAndWait();
+    }
+        
+     public void bigFile() {
+        Alert a = new Alert(Alert.AlertType.ERROR);
+        a.setContentText("El archivo es demasiado grande. Intenta subirlo en partes.");
+        a.setTitle("ERROR");
         a.setHeaderText("LOGISMAS");
         a.showAndWait();
     }
@@ -77,8 +118,7 @@ public class Alertas {
         PreparedStatement ps;
         ResultSet rs;
         byte[] b = null;
-
-        try {
+        try { 
             ps = jdbc.getConnection().prepareStatement("SELECT * FROM " + data.tbName + " WHERE id = ?;");
             ps.setInt(1, docu.getId());
             System.out.println(ps);
@@ -86,20 +126,20 @@ public class Alertas {
 
             while (rs.next()) {
                 b = rs.getBytes("archivo");
-                fileName = rs.getString("nombre").trim();
+                fileName =rs.getString("nombre").trim()+" - Rev "+rs.getString("rev").trim()+" - ARCHIVO TEMPORAL - ";
                 fileExt = rs.getString("ext");
             }
-
+            fileExt="."+fileExt;
             InputStream bos = new ByteArrayInputStream(b);
             int tamanoInput = bos.available();
             byte[] datosPDF = new byte[tamanoInput];
             bos.read(datosPDF, 0, tamanoInput);
-            OutputStream out = new FileOutputStream(fileName + "." + fileExt);
+            OutputStream out = new FileOutputStream(fileName+fileExt);
             out.write(datosPDF);
-            System.out.println(fileName + "." + fileExt);
+            System.out.println(fileName + fileExt);
             out.close();
             bos.close();
-            Desktop.getDesktop().open(new File(fileName + "." + fileExt));
+            Desktop.getDesktop().open(new File(fileName+fileExt));
         } catch (IOException | NumberFormatException | SQLException ex) {
             System.out.println("Error al abrir archivo" + ex.getMessage());
         }
@@ -108,7 +148,7 @@ public class Alertas {
 
     public ObservableList<Docu> getDocuList() {
         ObservableList<Docu> docuList = FXCollections.observableArrayList();
-        String query = "SELECT * FROM " + data.tbName + "";
+        String query = "SELECT id, codigo, nombre, rev, fecharegistro, last_update FROM " + data.tbName + "";
         System.out.println(query);
         Statement st;
         ResultSet rs;

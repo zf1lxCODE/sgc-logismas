@@ -52,6 +52,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import jdk.jfr.internal.tool.Main;
+import static logismasapp.JdbcDao.DATABASE_PASSWORD;
+import static logismasapp.JdbcDao.DATABASE_URL;
+import static logismasapp.JdbcDao.DATABASE_USERNAME;
+import static logismasapp.JdbcDao.printSQLException;
 
 /**
  * FXML Controller class
@@ -94,14 +98,13 @@ public class PuestosController implements Initializable {
     private AnchorPane puestosPane;
 
     public Connection getConnection() {
-        Connection conn;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/logismasdatabase", "root", "Fileton2015");
-            return conn;
+            Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+            return connection;
         } catch (SQLException ex) {
-            System.out.println("Error: " + ex.getMessage());
-            return null;
+            printSQLException(ex);
         }
+        return null;
     }
 
     private void executeQuery(String query) {
@@ -118,7 +121,7 @@ public class PuestosController implements Initializable {
     public ObservableList<Puesto> getPuestosList() {
         ObservableList<Puesto> puestosList = FXCollections.observableArrayList();
         Connection conn = getConnection();
-        String query = "SELECT * FROM puestos WHERE id > 1";
+        String query = "SELECT * FROM puestos";
         Statement st;
         ResultSet rs;
 
@@ -179,7 +182,6 @@ public class PuestosController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         showPuestos();
         departamentoBox.setItems(FXCollections.observableArrayList(getDepartamentos()));
-        departamentoBox.getSelectionModel().select("SELECCIONAR");
     }
 
     @FXML

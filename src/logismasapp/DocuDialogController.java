@@ -4,12 +4,15 @@
  */
 package logismasapp;
 
+import com.mysql.cj.jdbc.exceptions.PacketTooBigException;
 import static java.awt.Color.blue;
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -29,11 +32,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
-/**
- * FXML Controller class
- *
- * @author user
- */
 public class DocuDialogController implements Initializable {
 
     @FXML
@@ -57,6 +55,7 @@ public class DocuDialogController implements Initializable {
     String aux;
     Alertas a = new Alertas();
     JdbcDao jdbc = new JdbcDao();
+    DocusController conk;
 
     public Docu getDocu() {
         return docu;
@@ -70,6 +69,10 @@ public class DocuDialogController implements Initializable {
         this.id = docu.getId();
         this.revTF.setText(docu.getRev());
         labelHeader.setText("Modificar archivo");
+    }
+    
+    public void control(DocusController controladork){
+       conk = controladork;
     }
 
     @Override
@@ -99,37 +102,39 @@ public class DocuDialogController implements Initializable {
             if (codigoTF.getText().isEmpty() || revTF.getText().isEmpty() || nombreTF.getText().isEmpty() || file == null) {
                 a.errorBlank();
             } else {
-                byte[] arch = new byte[(int) file.length()];
-                InputStream input = new FileInputStream(file);
-                input.read(arch);
+                FileInputStream fis = new FileInputStream(file); 
                 String sql = "INSERT INTO " + data.tbName + " (codigo, nombre, rev, archivo, ext) VALUES(?, ?, ?, ?, ?);";
                 PreparedStatement ps = jdbc.getConnection().prepareStatement(sql);
                 ps.setString(1, codigoTF.getText());
                 ps.setString(2, nombreTF.getText());
                 ps.setString(3, revTF.getText());
-                ps.setBytes(4, arch);
+                ps.setBlob(4,fis);
                 ps.setString(5, aux);
                 System.out.println(sql);
-                ps.executeUpdate();
+                try{
+                ps.executeLargeUpdate();
+                }catch(PacketTooBigException ex){
+                    a.bigFile();
+                }
                 a.infoSuccess();
+                conk.showDocus();
             }
         } else {
-            if (a.confirmDelete()) {
+            if (a.confirmEdit()) {
                 if (file != null) {
-                    byte[] arch = new byte[(int) file.length()];
-                    InputStream input = new FileInputStream(file);
-                    input.read(arch);
+                    FileInputStream fis = new FileInputStream(file); 
                     String sql = "UPDATE " + data.tbName + " SET codigo = ?, nombre = ?, rev = ?, archivo = ?, ext = ? WHERE id = ?";
                     PreparedStatement ps = jdbc.getConnection().prepareStatement(sql);
                     ps.setString(1, codigoTF.getText());
                     ps.setString(2, nombreTF.getText());
                     ps.setString(3, revTF.getText());
-                    ps.setBytes(4, arch);
+                    ps.setBlob(4, fis);
                     ps.setString(5, aux);
                     ps.setInt(6, docu.getId());
-                    ps.executeUpdate();
+                    ps.executeLargeUpdate();
                     System.out.println(sql);
-                    a.infoSuccess();
+                    a.infoSuccessEdit();
+                    conk.showDocus();
                 } else {
                     String sql = "UPDATE " + data.tbName + " SET codigo = ?, nombre = ?, rev = ? WHERE id = ?";
                     PreparedStatement ps;
@@ -137,12 +142,14 @@ public class DocuDialogController implements Initializable {
                     ps.setString(1, codigoTF.getText());
                     ps.setString(2, nombreTF.getText());
                     ps.setString(3, revTF.getText());
-                    ps.setInt(4, docu.getId());
+                    ps.setInt(4,docu.getId());
                     ps.executeUpdate();
                     System.out.println(sql);
-                    a.infoSuccess();
+                    a.infoSuccessEdit();
+                    conk.showDocus();
                 }
             }
         }
     }
+    
 }

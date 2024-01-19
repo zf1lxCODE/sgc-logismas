@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -22,40 +23,83 @@ public class docuDashController implements Initializable {
 
     @FXML
     private AnchorPane rhDashPane;
+    @FXML
+    private Button docusintBtn;
+    @FXML
+    private Button docusextBtn;
+    @FXML
+    private Button instrucBtn;
+    @FXML
+    private Button regisBtn;
+    @FXML
+    private Button bitacoraBtn;
+    @FXML
+    private Button customBtn;
+    @FXML
+    private Button otrosBtn;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    data.escenaAnt="docuDash.fxml";
     }
 
     @FXML
-    private void listadocuAction(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("Procedimientos.fxml"));
+    private void instruAction(ActionEvent event) throws IOException {
+        data.headText=instrucBtn.getText();
+        data.tbName="listamaestrainstruc";
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
         rhDashPane.getChildren().setAll(pane);
     }
 
     @FXML
-    private void registroAction(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("Registros.fxml"));
+    private void listadocuintAction(ActionEvent event) throws IOException {
+        data.headText=docusintBtn.getText();
+        data.tbName="listamaestradocint";
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
         rhDashPane.getChildren().setAll(pane);
     }
 
     @FXML
-    private void instruAction(ActionEvent event) {
-
+    private void listadodocuextAction(ActionEvent event) throws IOException {
+        data.headText=docusextBtn.getText();
+        data.tbName="listamaestradocext";
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
+        rhDashPane.getChildren().setAll(pane);
     }
 
     @FXML
-    private void cambiosAction(ActionEvent event) {
-
+    private void registrosAction(ActionEvent event) throws IOException {
+        data.headText=regisBtn.getText();
+        data.tbName="listamaestraregis";
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
+        rhDashPane.getChildren().setAll(pane);
     }
 
     @FXML
-    private void customerchanAction(ActionEvent event) {
+    private void cambiosintAction(ActionEvent event) throws IOException {
+        data.headText=bitacoraBtn.getText();
+        data.tbName="cambiosinternossgc";
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
+        rhDashPane.getChildren().setAll(pane);
+    }
+    
+    @FXML
+    private void customerchanAction(ActionEvent event) throws IOException {
+        data.headText=customBtn.getText();
+        data.tbName="changeslogsgc";
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
+        rhDashPane.getChildren().setAll(pane);
+    }
 
+    @FXML
+    private void otrosdocsdocsAction(ActionEvent event) throws IOException {
+        data.headText=otrosBtn.getText();
+        data.tbName="otrosdocsdocs";
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
+        rhDashPane.getChildren().setAll(pane);
     }
 
 }

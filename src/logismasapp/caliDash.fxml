@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="prodDashPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1017.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.caliDashController">
+   <children>
+      <VBox alignment="CENTER" layoutX="132.0" layoutY="34.0" prefHeight="800.0" prefWidth="1017.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Calibración" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="36.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="procesBtn" mnemonicParsing="false" onAction="#procedimientosAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Procedimientos" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="certificadosBtn" mnemonicParsing="false" onAction="#certificadosAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Certificados" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="equipoBtn" mnemonicParsing="false" onAction="#equipoAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Lista de equipo de inspección, medición y prueba" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="calenBtn" mnemonicParsing="false" onAction="#calenAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Calendario de calibración" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="fueraservicioBtn" mnemonicParsing="false" onAction="#fueraservicioAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Equipo fuera de servicio" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="historialBtn" mnemonicParsing="false" onAction="#historialAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Historial de maquinaria y equipo para calibración" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="otrosBtn" mnemonicParsing="false" onAction="#otrosdocsAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Otros documentos/registros" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
