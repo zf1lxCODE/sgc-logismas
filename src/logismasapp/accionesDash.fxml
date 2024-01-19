@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="compDashPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1017.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.mejoraDashController">
+<AnchorPane fx:id="compDashPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1017.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.accionesDashController">
    <children>
       <VBox alignment="CENTER" layoutX="132.0" layoutY="34.0" prefHeight="800.0" prefWidth="1017.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Mejora continua" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label text="Acciones correctivas" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma" size="36.0" />
                </font>
@@ -27,7 +27,15 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="sugerBtn" mnemonicParsing="false" onAction="#sugerAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Sugerencias/Recomendaciones" textFill="WHITE">
+            <Button fx:id="internasBtn" mnemonicParsing="false" onAction="#internasAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Acciones correctivas internas" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="externasBtn" mnemonicParsing="false" onAction="#externasAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Acciones correctivas externas" textFill="WHITE">
                <font>
                   <Font name="Tahoma" size="22.0" />
                </font>

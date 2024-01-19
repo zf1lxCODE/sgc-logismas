@@ -19,56 +19,37 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author user
  */
-public class compDashController implements Initializable {
+public class mejoraDashController implements Initializable {
 
     @FXML
     private AnchorPane compDashPane;
     @FXML
     private Button procesBtn;
     @FXML
-    private Button provesBtn;
-    @FXML
-    private Button requisBtn;
-    @FXML
-    private Button listaBtn;
-    @FXML
-    private Button evalBtn;
+    private Button sugerBtn;
     @FXML
     private Button otroBtn;
 
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    data.escenaAnt="compDash.fxml";
-    }
+    data.escenaAnt="mejoraDash.fxml";
+    }    
 
     @FXML
-    private void procesadquiAction(ActionEvent event) throws IOException {
+    private void procesAction(ActionEvent event) throws IOException {
         data.headText=procesBtn.getText();
-        data.tbName = "procesadqui";
+        data.tbName = "procesmej";
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
         compDashPane.getChildren().setAll(pane);
     }
 
     @FXML
-    private void requisAction(ActionEvent event) throws IOException {
-        data.headText=requisBtn.getText();
-        data.tbName = "requis";
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
-        compDashPane.getChildren().setAll(pane);
-    }
-
-    @FXML
-    private void listaprovesAction(ActionEvent event) throws IOException {
-        data.headText=listaBtn.getText();
-        data.tbName = "listaproves";
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
-        compDashPane.getChildren().setAll(pane);
-    }
-
-    @FXML
-    private void evaluacionprovesAction(ActionEvent event) throws IOException {
-        data.headText=evalBtn.getText();
-        data.tbName = "evalproves";
+    private void sugerAction(ActionEvent event) throws IOException {
+        data.headText=sugerBtn.getText();
+        data.tbName = "sugermej";
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
         compDashPane.getChildren().setAll(pane);
     }
@@ -76,9 +57,9 @@ public class compDashController implements Initializable {
     @FXML
     private void otrosdocsAction(ActionEvent event) throws IOException {
         data.headText=otroBtn.getText();
-        data.tbName = "otrosdocsadqui";
+        data.tbName = "otrosmej";
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
         compDashPane.getChildren().setAll(pane);
     }
-
+    
 }

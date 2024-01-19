@@ -197,7 +197,9 @@ public class DashboardMainController implements Initializable {
     }
 
     @FXML
-    private void accionescoAction(ActionEvent event) {
+    private void accionescoAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("accionesDash.fxml"));
+        showPane.getChildren().setAll(pane);
     }
 
     @FXML
