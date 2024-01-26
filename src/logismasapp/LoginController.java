@@ -25,7 +25,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import logismasapp.JdbcDao;
-import logismasapp.JdbcDao;
 
 public class LoginController implements Initializable {
 
@@ -41,11 +40,7 @@ public class LoginController implements Initializable {
     private CheckBox login_checkbox;
     @FXML
     private TextField textoPassVis;
-    private TextField hostTF;
-    private TextField userTF;
-    private TextField passwordTF;
-    private TextField portTF;
-    private TextField dbTF;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -54,10 +49,9 @@ public class LoginController implements Initializable {
 
     @FXML
     private void Entrar(ActionEvent event) throws IOException {
-        
         data.userDB="rootdos";
         data.passDB="root";
-        data.hostDB="ISIDRO-QCPC";
+        data.hostDB="isidro-qcpc";
         data.portDB="3306";
         data.dbDB="logismasdatabase";
         

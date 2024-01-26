@@ -4,6 +4,7 @@
  */
 package logismasapp;
 
+import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
 import com.mysql.cj.jdbc.exceptions.PacketTooBigException;
 import static java.awt.Color.blue;
 import java.io.BufferedInputStream;
@@ -17,6 +18,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.SQLSyntaxErrorException;
 import java.sql.Statement;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -70,9 +72,9 @@ public class DocuDialogController implements Initializable {
         this.revTF.setText(docu.getRev());
         labelHeader.setText("Modificar archivo");
     }
-    
-    public void control(DocusController controladork){
-       conk = controladork;
+
+    public void control(DocusController controladork) {
+        conk = controladork;
     }
 
     @Override
@@ -102,27 +104,35 @@ public class DocuDialogController implements Initializable {
             if (codigoTF.getText().isEmpty() || revTF.getText().isEmpty() || nombreTF.getText().isEmpty() || file == null) {
                 a.errorBlank();
             } else {
-                FileInputStream fis = new FileInputStream(file); 
+                FileInputStream fis = new FileInputStream(file);
                 String sql = "INSERT INTO " + data.tbName + " (codigo, nombre, rev, archivo, ext) VALUES(?, ?, ?, ?, ?);";
                 PreparedStatement ps = jdbc.getConnection().prepareStatement(sql);
                 ps.setString(1, codigoTF.getText());
                 ps.setString(2, nombreTF.getText());
                 ps.setString(3, revTF.getText());
-                ps.setBlob(4,fis);
+                ps.setBlob(4, fis);
                 ps.setString(5, aux);
                 System.out.println(sql);
-                try{
-                ps.executeLargeUpdate();
-                }catch(PacketTooBigException ex){
+                int auxc = 0;
+                try {
+                    ps.executeLargeUpdate();
+                } catch (PacketTooBigException | MysqlDataTruncation ex) {
+                    auxc = 1;
                     a.bigFile();
+                } catch (SQLSyntaxErrorException ex) {
+                    auxc = 1;
+                    a.noPermitido();
+                } finally {
+                    if (auxc == 0) {
+                        a.infoSuccess();
+                    }
                 }
-                a.infoSuccess();
                 conk.showDocus();
             }
         } else {
             if (a.confirmEdit()) {
                 if (file != null) {
-                    FileInputStream fis = new FileInputStream(file); 
+                    FileInputStream fis = new FileInputStream(file);
                     String sql = "UPDATE " + data.tbName + " SET codigo = ?, nombre = ?, rev = ?, archivo = ?, ext = ? WHERE id = ?";
                     PreparedStatement ps = jdbc.getConnection().prepareStatement(sql);
                     ps.setString(1, codigoTF.getText());
@@ -131,9 +141,20 @@ public class DocuDialogController implements Initializable {
                     ps.setBlob(4, fis);
                     ps.setString(5, aux);
                     ps.setInt(6, docu.getId());
-                    ps.executeLargeUpdate();
-                    System.out.println(sql);
-                    a.infoSuccessEdit();
+                    int auxc = 0;
+                    try {
+                        ps.executeLargeUpdate();
+                    } catch (PacketTooBigException ex) {
+                        auxc = 1;
+                        a.bigFile();
+                    } catch (SQLSyntaxErrorException ex) {
+                        auxc = 1;
+                        a.noPermitido();
+                    } finally {
+                        if (auxc == 0) {
+                            a.infoSuccessEdit();
+                        }
+                    }
                     conk.showDocus();
                 } else {
                     String sql = "UPDATE " + data.tbName + " SET codigo = ?, nombre = ?, rev = ? WHERE id = ?";
@@ -142,14 +163,25 @@ public class DocuDialogController implements Initializable {
                     ps.setString(1, codigoTF.getText());
                     ps.setString(2, nombreTF.getText());
                     ps.setString(3, revTF.getText());
-                    ps.setInt(4,docu.getId());
-                    ps.executeUpdate();
-                    System.out.println(sql);
-                    a.infoSuccessEdit();
+                    ps.setInt(4, docu.getId());
+                    int auxc = 0;
+                    try {
+                        ps.executeLargeUpdate();
+                    } catch (PacketTooBigException ex) {
+                        auxc = 1;
+                        a.bigFile();
+                    } catch (SQLSyntaxErrorException ex) {
+                        auxc = 1;
+                        a.noPermitido();
+                    } finally {
+                        if (auxc == 0) {
+                            a.infoSuccessEdit();
+                        }
+                    }
                     conk.showDocus();
                 }
             }
         }
     }
-    
+
 }

@@ -18,4 +18,9 @@ public class data {
     public static String dbDB;
     public static String headText;
     public static String escenaAnt;
+    public static String asuntoMsjRecibido;
+    public static String remitenteMsjRecibido;
+    public static String mensajeMsjRecibido;
+    public static String fechaMsjRecibido;
+    public static int cantidadMsjsRecibidos;
 }

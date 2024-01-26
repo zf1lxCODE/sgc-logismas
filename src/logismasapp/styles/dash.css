@@ -111,3 +111,55 @@
 .headerTexts{
     
 }
+
+
+.vistasInicio{
+    -fx-border-color: white;
+    -fx-border-width: 4px;
+    -fx-border-radius: 20px;
+}
+
+.combo-box .list-cell {
+  -fx-text-fill: black;
+  -fx-background-color : transparent; 
+  -fx-border-width: 0.5px;
+  -fx-border-color: white;
+}
+
+/* combo-box list view text, not hovered or focused */
+.combo-box .list-view .list-cell {
+  -fx-text-fill: black;
+  -fx-background-color : transparent; 
+  -fx-border-width: 0.5px;
+  -fx-border-color: white;
+}
+
+/* combo-box selected text */
+.combo-box .list-view .list-cell:focused {
+  -fx-background-color : linear-gradient(to bottom right, #0f6789, #286155);  /* Cadet Blue */
+  -fx-text-fill: white;
+  -fx-border-width: 1px;
+  -fx-border-color: white;
+}
+
+/* combo-box hover text */
+.combo-box .list-view .list-cell:hover {
+  -fx-background-color : linear-gradient(to bottom right, #0f6789, #286155);  /* Cadet Blue */
+  -fx-text-fill: white;
+  -fx-border-width: 1px;
+  -fx-border-color: white;
+}
+
+.text-area {
+    -fx-text-fill: #fff;
+    -fx-border-color: white;
+    -fx-border-width: .05px;
+}
+
+.text-area:hover {
+    -fx-border-width: .5px;
+}
+
+.text-area *.content {
+    -fx-background-color: linear-gradient(to bottom right, #0f6789, #286155);
+}

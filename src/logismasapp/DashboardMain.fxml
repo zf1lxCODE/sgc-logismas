@@ -38,9 +38,24 @@
                   <Insets bottom="20.0" top="5.0" />
                </VBox.margin>
             </Line>
+            <Button fx:id="inicioBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#inicioAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Inicio" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/calidad.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
             <Button fx:id="respgerLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#respgerAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Responsabilidad Gerencial" textFill="WHITE" wrapText="true">
                <VBox.margin>
-                  <Insets />
+                  <Insets top="4.0" />
                </VBox.margin>
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
@@ -236,6 +251,24 @@
                   <Insets top="4.0" />
                </VBox.margin>
             </Button>
+            <Button fx:id="noconBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#noconAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="No conformidades" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="4.0" />
+               </VBox.margin>
+            </Button>
             <Button fx:id="prodnocLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#producnoconAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Producto no conforme" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
@@ -309,6 +342,24 @@
                </VBox.margin>
             </Button>
             <Button fx:id="mejoraLabel" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#mejoracontiAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Mejora contínua" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/produccion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="4.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="auditextBtn" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#auditextAction" prefHeight="30.0" prefWidth="235.0" styleClass="btn-1" stylesheets="@styles/dash.css" text="Auditorías externas" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="16.0" />
                </font>

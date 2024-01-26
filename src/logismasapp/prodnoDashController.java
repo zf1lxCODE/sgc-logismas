@@ -37,6 +37,7 @@ public class prodnoDashController implements Initializable {
     private Button pncinternoBtn;
     @FXML
     private Button pncextBtn;
+    private Button alertasBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -95,6 +96,13 @@ public class prodnoDashController implements Initializable {
     private void pncextBtn(ActionEvent event) throws IOException {
         data.headText=pncextBtn.getText();
         data.tbName = "pncext";
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
+        prodDashPane.getChildren().setAll(pane);
+    }
+
+    private void alertasAction(ActionEvent event) throws IOException {
+        data.headText=alertasBtn.getText();
+        data.tbName = "alertasprodno";
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
         prodDashPane.getChildren().setAll(pane);
     }

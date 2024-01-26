@@ -26,8 +26,6 @@ public class compDashController implements Initializable {
     @FXML
     private Button procesBtn;
     @FXML
-    private Button provesBtn;
-    @FXML
     private Button requisBtn;
     @FXML
     private Button listaBtn;
@@ -80,5 +78,6 @@ public class compDashController implements Initializable {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
         compDashPane.getChildren().setAll(pane);
     }
+
 
 }

@@ -4,6 +4,7 @@
  */
 package logismasapp;
 
+import com.mysql.cj.jdbc.exceptions.PacketTooBigException;
 import java.awt.Desktop;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -17,6 +18,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLSyntaxErrorException;
 import java.sql.Statement;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -70,6 +72,10 @@ public class DocusController implements Initializable {
     private Button volverBtn;
     @FXML
     private AnchorPane docusPane;
+    private int c = 0;
+    Docu aux1;
+    Docu aux2;
+    Docu aux3;
 
     void showDocus() {
         ObservableList<Docu> list = a.getDocuList();
@@ -81,13 +87,13 @@ public class DocusController implements Initializable {
         lastupdateCol.setCellValueFactory(new PropertyValueFactory<Docu, String>("last_update"));
         tablaDocus.setItems(list);
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         topLabel.setText(data.headText);
         showDocus();
     }
-    
+
     @FXML
     private void agregaAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("DocuDialog.fxml"));
@@ -95,7 +101,7 @@ public class DocusController implements Initializable {
         a.openWindow(root);
         showDocus();
     }
-    
+
     @FXML
     private void editarAction(ActionEvent event) throws IOException {
         Docu docu = tablaDocus.getSelectionModel().getSelectedItem();
@@ -104,31 +110,35 @@ public class DocusController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("DocuDialog.fxml"));
             Parent root = loader.load();
             DocuDialogController controlador = loader.getController();
-            DocusController controladork = loader.getController();
             controlador.inicializaDocus(list, docu);
-            controlador.control(controladork);
             a.openWindow(root);
             showDocus();
-            
-        }else{
+
+        } else {
             a.noSelection();
         }
     }
-    
+
     @FXML
     private void actualizarAction(ActionEvent event) {
         showDocus();
     }
-    
+
     @FXML
-    private void eliminarAction(ActionEvent event) {
+    private void eliminarAction(ActionEvent event) throws SQLException {
         if (tablaDocus.getSelectionModel().getSelectedItem() != null) {
-                        Docu docu = tablaDocus.getSelectionModel().getSelectedItem();
+            Docu docu = tablaDocus.getSelectionModel().getSelectedItem();
             if (docu != null) {
                 if (a.confirmDelete()) {
                     String query = "DELETE FROM " + data.tbName + " WHERE id = " + docu.getId() + "";
-                    jdbc.executeQuery(query);
-                    System.out.println(query);
+                    PreparedStatement ps = jdbc.getConnection().prepareStatement(query);
+                    int auxc = 0;
+                    try {
+                        ps.executeLargeUpdate();
+                    } catch (SQLSyntaxErrorException ex) {
+                        auxc = 1;
+                        a.noPermitido();
+                    }
                     showDocus();
                 }
             }
@@ -136,25 +146,15 @@ public class DocusController implements Initializable {
             a.noSelection();
         }
     }
-    
-    @FXML
-    private void openSelected(ActionEvent event) {
-        if(tablaDocus.getSelectionModel().getSelectedItem()!=null){
-        Docu docu = tablaDocus.getSelectionModel().getSelectedItem();
-        a.openFile(docu);
-        }else{
-            a.noSelection();
-        }
-    }
-    
-    @FXML
-    private void handleMouseAction(MouseEvent event) {
-    }
 
     @FXML
-    private void volverAction(MouseEvent event) throws IOException {
-        AnchorPane panek = FXMLLoader.load(getClass().getResource(data.escenaAnt));
-        docusPane.getChildren().setAll(panek);
+    private void openSelected(ActionEvent event) {
+        if (tablaDocus.getSelectionModel().getSelectedItem() != null) {
+            Docu docu = tablaDocus.getSelectionModel().getSelectedItem();
+            a.openFile(docu);
+        } else {
+            a.noSelection();
+        }
     }
 
     @FXML
@@ -162,5 +162,21 @@ public class DocusController implements Initializable {
         AnchorPane panek = FXMLLoader.load(getClass().getResource(data.escenaAnt));
         docusPane.getChildren().setAll(panek);
     }
-    
+
+    @FXML
+    private void dobleClick(MouseEvent event) {
+        if (tablaDocus.getSelectionModel().getSelectedItem() != null && c == 1) {
+            if (tablaDocus.getSelectionModel().getSelectedItem() == aux1) {
+                a.openFile(aux1);
+                c = 0;
+            }
+        }
+        if (tablaDocus.getSelectionModel().getSelectedItem() != null && c == 0) {
+            aux1 = tablaDocus.getSelectionModel().getSelectedItem();
+            c = c + 1;
+        } else {
+            c = 0;
+        }
+    }
+
 }

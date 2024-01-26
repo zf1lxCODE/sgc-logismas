@@ -27,14 +27,6 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="provesBtn" mnemonicParsing="false" onAction="#proveedoresAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Proveedores" textFill="WHITE">
-               <font>
-                  <Font name="Tahoma" size="22.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="25.0" />
-               </VBox.margin>
-            </Button>
             <Button fx:id="requisBtn" mnemonicParsing="false" onAction="#requisAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Requisiciones de compra" textFill="WHITE">
                <font>
                   <Font name="Tahoma" size="22.0" />

@@ -48,6 +48,8 @@ public class sgcDashController implements Initializable {
     private Button tortugasBtn;
     @FXML
     private Button otrossgcBtn;
+    @FXML
+    private Button procedimientosBtn;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -138,6 +140,14 @@ public class sgcDashController implements Initializable {
     private void otrosdocssgcsAction(ActionEvent event) throws IOException {
         data.headText=otrossgcBtn.getText();
         data.tbName = "otrosdocssgc";
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
+        sgcDashPane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void procedimientosAction(ActionEvent event) throws IOException {
+        data.headText=procedimientosBtn.getText();
+        data.tbName = "processgc";
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
         sgcDashPane.getChildren().setAll(pane);
     }

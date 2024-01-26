@@ -38,7 +38,7 @@ public class prodDashController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        data.escenaAnt="prodDash.fxml";
     }
 
     @FXML

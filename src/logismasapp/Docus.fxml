@@ -11,14 +11,14 @@
 
 <AnchorPane fx:id="docusPane" prefHeight="800.0" prefWidth="1017.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logismasapp.DocusController">
    <children>
-      <TableView fx:id="tablaDocus" focusTraversable="false" layoutX="25.0" layoutY="76.0" maxWidth="1532.0" minHeight="427.0" onMouseClicked="#handleMouseAction" prefHeight="427.0" prefWidth="967.0" styleClass="shadow" stylesheets="@styles/dash.css">
+      <TableView fx:id="tablaDocus" focusTraversable="false" layoutX="25.0" layoutY="83.0" maxWidth="1532.0" minHeight="427.0" onMouseClicked="#dobleClick" prefHeight="427.0" prefWidth="967.0" styleClass="shadow" stylesheets="@styles/dash.css">
         <columns>
             <TableColumn fx:id="idCol" editable="false" minWidth="0.0" prefWidth="195.3333740234375" resizable="false" text="id" visible="false" />
-            <TableColumn fx:id="codigoCol" editable="false" minWidth="0.0" prefWidth="175.33340966701508" resizable="false" text="Código" />
-            <TableColumn fx:id="nombreCol" editable="false" prefWidth="421.9999542236328" resizable="false" text="Nombre" />
-            <TableColumn fx:id="revCol" editable="false" prefWidth="48.0" resizable="false" text="Rev." />
-            <TableColumn fx:id="lastupdateCol" editable="false" minWidth="0.0" prefWidth="170.6666259765625" resizable="false" text="Última actualización" />
-            <TableColumn fx:id="fregistroCol" editable="false" minWidth="0.0" prefWidth="158.666748046875" resizable="false" text="Fecha de registro" />
+            <TableColumn fx:id="codigoCol" editable="false" minWidth="0.0" prefWidth="155.0" resizable="false" text="Código" />
+            <TableColumn fx:id="nombreCol" editable="false" prefWidth="440.6666717529297" resizable="false" text="Nombre" />
+            <TableColumn fx:id="revCol" editable="false" prefWidth="65.0" resizable="false" text="Rev." />
+            <TableColumn fx:id="lastupdateCol" editable="false" minWidth="0.0" prefWidth="150.0" resizable="false" text="Última actualización" />
+            <TableColumn fx:id="fregistroCol" editable="false" minWidth="0.0" prefWidth="150.0" resizable="false" text="Fecha de registro" />
         </columns>
       </TableView>
       <Label fx:id="topLabel" layoutX="23.0" layoutY="26.0" prefHeight="30.0" prefWidth="967.0" text="TEXTO" textFill="WHITE" wrapText="true">
@@ -66,7 +66,7 @@
             </Button>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="170.0" layoutY="642.0" onMouseClicked="#volverAction" prefHeight="79.0" prefWidth="263.0" spacing="50.0" stylesheets="@styles/dash.css">
+      <HBox alignment="CENTER" layoutX="170.0" layoutY="642.0" prefHeight="79.0" prefWidth="263.0" spacing="50.0" stylesheets="@styles/dash.css">
          <children>
             <Button fx:id="volverBtn" maxHeight="50.0" minHeight="50.0" mnemonicParsing="false" onAction="#volverAction" prefHeight="50.0" prefWidth="225.0" stylesheets="@styles/dash.css" text="Volver" textFill="WHITE">
                <font>

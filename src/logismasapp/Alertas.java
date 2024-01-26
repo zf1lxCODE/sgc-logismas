@@ -4,6 +4,7 @@
  */
 package logismasapp;
 
+import com.mysql.cj.jdbc.exceptions.PacketTooBigException;
 import java.awt.Desktop;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -17,10 +18,12 @@ import java.nio.file.Paths;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLSyntaxErrorException;
 import java.sql.Statement;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -71,11 +74,27 @@ public class Alertas {
         sa.setHeaderText("LOGISMAS");
         sa.showAndWait();
     }
+    
+        public void noPermitido() {
+        Alert sa = new Alert(Alert.AlertType.ERROR);
+        sa.setContentText("No tienes permiso para hacer eso.");
+        sa.setTitle("ERROR");
+        sa.setHeaderText("LOGISMAS");
+        sa.showAndWait();
+    }
 
     public void infoSuccess() {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setContentText("El archivo se agregó correctamente!");
         a.setTitle("Enhorabuena!");
+        a.setHeaderText("LOGISMAS");
+        a.showAndWait();
+    }
+    
+        public void infoSuccessMsj() {
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setContentText("El mensaje se envío correctamente!");
+        a.setTitle("MENSAJE ENVIADO");
         a.setHeaderText("LOGISMAS");
         a.showAndWait();
     }
@@ -146,6 +165,36 @@ public class Alertas {
 
     }
 
+    public void openMsj(Mensaje mensaje) throws IOException, SQLException {
+        PreparedStatement ps;
+        ResultSet rs;
+        try {
+            ps = jdbc.getConnection().prepareStatement("SELECT * FROM mensajes WHERE id = ?;");
+            ps.setInt(1, mensaje.getId());
+            System.out.println(ps);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                data.mensajeMsjRecibido = rs.getString("mensaje");
+                data.asuntoMsjRecibido = rs.getString("asunto");
+                data.remitenteMsjRecibido = rs.getString("remitente");
+                data.fechaMsjRecibido = rs.getString("fecha");
+            }
+
+        } catch (NumberFormatException | SQLException ex) {
+            System.out.println("Error al abrir mensaje" + ex.getMessage());
+        }
+        String sql = "UPDATE mensajes SET estado = ? WHERE id = ?";
+        PreparedStatement pss;
+        pss = jdbc.getConnection().prepareStatement(sql);
+        pss.setString(1, "LEIDO");
+        pss.setInt(2, mensaje.getId());
+        pss.executeUpdate();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MensajeRecibido.fxml"));
+        Parent root = loader.load();
+        openWindow(root);
+    }
+
+
     public ObservableList<Docu> getDocuList() {
         ObservableList<Docu> docuList = FXCollections.observableArrayList();
         String query = "SELECT id, codigo, nombre, rev, fecharegistro, last_update FROM " + data.tbName + "";
@@ -164,6 +213,26 @@ public class Alertas {
             System.out.println("Error: " + ex.getMessage());
         }
         return docuList;
+    }
+    
+        public ObservableList<Mensaje> getMsjList() {
+        ObservableList<Mensaje> msjList = FXCollections.observableArrayList();
+        String query = "SELECT id, remitente, asunto, mensaje, fecha, estado FROM mensajes WHERE destinatario='"+data.username+"'";
+        System.out.println(query);
+        Statement st;
+        ResultSet rs;
+        try {
+            st = jdbc.getConnection().createStatement();
+            rs = st.executeQuery(query);
+            Mensaje msj;
+            while (rs.next()) {
+                msj = new Mensaje(rs.getInt("id"), rs.getString("remitente"), rs.getString("asunto"), rs.getString("mensaje"), rs.getString("fecha"), rs.getString("estado"));
+                msjList.add(msj);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return msjList;
     }
 
 }

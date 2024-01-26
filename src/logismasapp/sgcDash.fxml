@@ -24,6 +24,14 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="800.0" prefWidth="736.0">
                      <children>
+                        <Button fx:id="procedimientosBtn" maxHeight="40.0" maxWidth="450.0" minHeight="40.0" minWidth="450.0" mnemonicParsing="false" onAction="#procedimientosAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Procedimientos" textFill="WHITE">
+                           <font>
+                              <Font name="Tahoma" size="22.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="25.0" />
+                           </VBox.margin>
+                        </Button>
                         <Button fx:id="fodaBtn" maxHeight="40.0" maxWidth="450.0" minHeight="40.0" minWidth="450.0" mnemonicParsing="false" onAction="#fodaAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Análisis FODA del entorno" textFill="WHITE">
                            <font>
                               <Font name="Tahoma" size="22.0" />

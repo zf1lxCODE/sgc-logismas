@@ -67,6 +67,14 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </Button>
+            <Button fx:id="alertasBtn" mnemonicParsing="false" onAction="#alertasAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Alertas de calidad" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
             <Button fx:id="otrosBtn" mnemonicParsing="false" onAction="#otrosdocsAction" prefHeight="40.0" prefWidth="450.0" styleClass="btn-2" stylesheets="@styles/dash.css" text="Otros documentos/registros" textFill="WHITE">
                <font>
                   <Font name="Tahoma" size="22.0" />

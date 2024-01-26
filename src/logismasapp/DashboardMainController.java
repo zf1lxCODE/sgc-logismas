@@ -74,13 +74,19 @@ public class DashboardMainController implements Initializable {
     private Button mejoraLabel;
     @FXML
     private Button auditintLabel;
+    @FXML
+    private Button noconBtn;
+    @FXML
+    private Button auditextBtn;
+    @FXML
+    private Button inicioBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         displayUsername();
         AnchorPane pane = null;
         try {
-            pane = FXMLLoader.load(getClass().getResource("gerDash.fxml"));
+            pane = FXMLLoader.load(getClass().getResource("Inicio.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(DashboardMainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -109,6 +115,7 @@ public class DashboardMainController implements Initializable {
         showPane.getChildren().setAll(pane);
     }
 
+    @FXML
     private void inicioAction(ActionEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Inicio.fxml"));
         showPane.getChildren().setAll(pane);
@@ -213,14 +220,25 @@ public class DashboardMainController implements Initializable {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("auditintDash.fxml"));
         showPane.getChildren().setAll(pane);
     }
+
+    @FXML
+    private void noconAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("noconDash.fxml"));
+        showPane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void auditextAction(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("auditextDash.fxml"));
+        showPane.getChildren().setAll(pane);
+    }
     
-    public void displayUsername() {
+        public void displayUsername() {
         String user = data.username;
         lblUser.setText(user);
         System.out.println(user);
         System.out.println(lblUser.getText());
         System.out.println(lblUser.getText());
     }
-
 
 }

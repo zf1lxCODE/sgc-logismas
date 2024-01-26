@@ -37,6 +37,8 @@ public class inspecDashController implements Initializable {
     private Button certificadosBtn;
     @FXML
     private Button reportesBtn;
+    @FXML
+    private Button alertasBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -95,6 +97,14 @@ public class inspecDashController implements Initializable {
     private void reportesAction(ActionEvent event) throws IOException {
         data.headText = reportesBtn.getText();
         data.tbName = "reportesinspec";
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
+        prodDashPane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void alertasAction(ActionEvent event) throws IOException {
+        data.headText = alertasBtn.getText();
+        data.tbName = "alertasinspec";
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Docus.fxml"));
         prodDashPane.getChildren().setAll(pane);
     }

@@ -18,7 +18,7 @@
     -fx-border-width: .5px;
     -fx-text-fill: #fff;
 }
-.textfield-2:focused{
+.textfield-2:hover{
     -fx-border-width: 1px;
 }
 
@@ -55,13 +55,6 @@
 
 .login-btn:hover{
     -fx-background-color: linear-gradient(to bottom right, #0fb565, #399a8f); 
-}.textfield{
-    -fx-background-color: transparent;
-    -fx-border-color: linear-gradient(to bottom right, #0f6789, #286155);
-    -fx-border-width: .5px;
-}
-.textfield:focused{
-    -fx-border-width: 1px;
 }
 
 .textfield{
@@ -84,4 +77,18 @@
 .create-btn:hover{
     -fx-background-color: #fff;
     -fx-text-fill: #000;
+}
+
+.text-area {
+    -fx-text-fill: #fff;
+    -fx-border-color: white;
+    -fx-border-width: .05px;
+}
+
+.text-area:hover {
+    -fx-border-width: .5px;
+}
+
+.text-area *.content {
+    -fx-background-color: linear-gradient(to bottom right, #0f6789, #286155);
 }
